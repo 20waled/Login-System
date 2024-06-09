@@ -1,0 +1,33 @@
+
+body{
+    background-color: #24353f;
+    font-family: sans-serif;
+    
+}
+.container{
+    background-color: #24353f;
+    box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.4);
+}
+.navbar{
+    box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.welcome{
+    box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+h1 , h2{
+    color: #17a2b8;
+}
+input{
+    background-color: transparent !important;
+    color: #fff;
+}
+.form-control:focus{
+    box-shadow: 0 0 0 0 transparent;
+}
+::placeholder{
+    color: rgb(176, 172, 172) !important;
+}
