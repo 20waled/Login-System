@@ -21,26 +21,19 @@ function signUp() {
     }
     if (signUpName.value == "" || signUpEmail.value == "" || signUpPassword.value == "") {
         document.getElementById("alert").innerHTML = `<span class="text-danger my-3">All Inputs Is Requierd</span>`;
-        return;
     }
-    if (container.length == 0) {
-        container.push(info);
-        localStorage.setItem("info", JSON.stringify(container));
-        clearForm();
-        document.getElementById("alert").innerHTML = `<span class="my-3 text-success">Success</span>`;
-        return;
-    }
-    if (isExist() == true) {
+    else if (isExist() == true) {
         clearForm();
         document.getElementById("alert").innerHTML = `<span class="my-3 text-danger">This Email Is Exist</span>`;
     }
     else {
-        container.push(info);
-        localStorage.setItem("info", JSON.stringify(container));
-        clearForm();
-        document.getElementById("alert").innerHTML = `<span class="my-3 text-success">Success</span>`;
+        if (validateInputs(signUpName) && validateInputs(signUpEmail) && validateInputs(signUpPassword)) {
+            container.push(info);
+            localStorage.setItem("info", JSON.stringify(container));
+            clearForm();
+            document.getElementById("alert").innerHTML = `<span class="my-3 text-success">Success</span>`;
+        }
     }
-
 }
 
 var signUpBtn = document.getElementById("signUpBtn");
@@ -64,19 +57,18 @@ function isExist() {
     }
 }
 
-
 // ==================================================================================>>Login //
-
 
 function logIn() {
 
     if (logInEmail.value == "" || logInPassword.value == "") {
         document.getElementById("notfound").innerHTML = `<span class="my-3 text-danger">All Inputs Is Requierd</span>`;
-        return;
     }
-    if (isFound()) {
-        localStorage.setItem("username", userName);
-        window.location.href = "welcome.html";
+    else if (isFound()) {
+        if (validateInputs(logInEmail) && validateInputs(logInPassword)) {
+            localStorage.setItem("username", userName);
+            window.location.href = "welcome.html";
+        }
     }
     else {
         document.getElementById("notfound").innerHTML = `<span class="my-3 text-danger"> You Dont have an Account </span>`;
@@ -108,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-
 //=====================================================================>>> Validation
 
 function validateInputs(element) {
@@ -122,14 +113,14 @@ function validateInputs(element) {
     if (regex[element.id].test(element.value)) {
         element.classList.add("is-valid");
         element.classList.remove("is-invalid");
+        return true;
     }
     else {
         element.classList.add("is-invalid");
         element.classList.remove("is-valid");
+        return false;
     }
 }
-
-
 
 if (signUpName) {
     signUpName.addEventListener("keypress", function () {
@@ -146,7 +137,6 @@ if (signUpPassword) {
         validateInputs(this);
     });
 }
-
 if (logInEmail) {
     logInEmail.addEventListener("keypress", function () {
         validateInputs(this);
@@ -157,7 +147,3 @@ if (logInPassword) {
         validateInputs(this);
     });
 }
-
-
-
-
