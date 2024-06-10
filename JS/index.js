@@ -107,3 +107,57 @@ document.addEventListener('DOMContentLoaded', function () {
         welcomeName.innerHTML = localStorage.getItem("username");
     }
 });
+
+
+//=====================================================================>>> Validation
+
+function validateInputs(element) {
+    var regex = {
+        signUpName: /^[a-zA-Z]+$/,
+        signUpEmail: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
+        signUpPassword: /^[a-zA-Z0-9._%+-]+$/,
+        logInEmail: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
+        logInPassword: /^[a-zA-Z0-9._%+-]+$/,
+    }
+    if (regex[element.id].test(element.value)) {
+        element.classList.add("is-valid");
+        element.classList.remove("is-invalid");
+    }
+    else {
+        element.classList.add("is-invalid");
+        element.classList.remove("is-valid");
+    }
+}
+
+
+
+if (signUpName) {
+    signUpName.addEventListener("keypress", function () {
+        validateInputs(this);
+    });
+}
+if (signUpEmail) {
+    signUpEmail.addEventListener("keypress", function () {
+        validateInputs(this);
+    });
+}
+if (signUpPassword) {
+    signUpPassword.addEventListener("keypress", function () {
+        validateInputs(this);
+    });
+}
+
+if (logInEmail) {
+    logInEmail.addEventListener("keypress", function () {
+        validateInputs(this);
+    });
+}
+if (logInPassword) {
+    logInEmail.addEventListener("keypress", function () {
+        validateInputs(this);
+    });
+}
+
+
+
+
