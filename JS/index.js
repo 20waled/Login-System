@@ -153,7 +153,7 @@ if (logInEmail) {
     });
 }
 if (logInPassword) {
-    logInEmail.addEventListener("keypress", function () {
+    logInPassword.addEventListener("keypress", function () {
         validateInputs(this);
     });
 }
