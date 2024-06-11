@@ -95,7 +95,7 @@ function isFound() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    if (window.location.pathname === 'Login-System/welcome.html') {
+    if (window.location.pathname === '/Login-System/welcome.html') {
         welcomeName.innerHTML = localStorage.getItem("username");
     }
 });
