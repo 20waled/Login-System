@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-//=====================================================================>>> Validation
+//=====================================================================>>> Validation Regex
 
 function validateInputs(element) {
     var regex = {
