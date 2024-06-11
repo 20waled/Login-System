@@ -4,7 +4,7 @@ var signUpEmail = document.getElementById("signUpEmail");
 var signUpPassword = document.getElementById("signUpPassword");
 var logInEmail = document.getElementById("logInEmail");
 var logInPassword = document.getElementById("logInPassword");
-var welcomeName = document.getElementById("name");
+var welcomeName = document.getElementById("welcomeName");
 var userName;
 var container = [];
 
@@ -95,7 +95,7 @@ function isFound() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    if (window.location.pathname === '/welcome.html') {
+    if (window.location.pathname === 'Login-System/welcome.html') {
         welcomeName.innerHTML = localStorage.getItem("username");
     }
 });
